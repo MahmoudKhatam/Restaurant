@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layoutBackground"
+    tools:context=".myAcc">
+
+    <LinearLayout
+        android:id="@+id/header_Linear"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher" />
+        <Button
+            android:id="@+id/btn_change_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change pic "
+            android:onClick="changePicture"
+            android:layout_gravity="right"/>
+
+
+        <TextView
+            android:id="@+id/get_username"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="5dp"
+            android:text="textview"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/content_Linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/header_Linear"
+        android:orientation="vertical"
+        android:weightSum="4">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/email_image"
+                android:layout_width="72dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_email_black_24dp"/>
+
+            <TextView
+                android:id="@+id/email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/phone_image"
+                android:layout_width="72dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_phone_android_black_24dp"/>
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="57dp"
+                tools:srcCompat="@tools:sample/avatars"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="57dp"
+                tools:srcCompat="@tools:sample/avatars"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
