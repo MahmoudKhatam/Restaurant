@@ -39,5 +39,10 @@ public class home extends AppCompatActivity {
         Intent intent = new Intent(this,myAcc.class);
         startActivity(intent);
     }
+
+    public void locationClick(View view) {
+        Intent intent = new Intent(this,location.class);
+        startActivity(intent);
+    }
 }
 

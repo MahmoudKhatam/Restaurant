@@ -199,6 +199,7 @@
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
             app:cardBackgroundColor="@color/colorPrimary"
+            android:onClick="locationClick"
             >
             <LinearLayout
                 android:layout_height="wrap_content"
