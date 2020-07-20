@@ -46,22 +46,40 @@ public class myAcc extends AppCompatActivity {
         setContentView(R.layout.activity_my_acc);
         uName = findViewById(R.id.get_username);
         email = findViewById(R.id.email_text);
+        phone = findViewById(R.id.phone_text);
         uImage = findViewById(R.id.user_image);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         StorageRef = FirebaseStorage.getInstance().getReference();
 
+        StorageReference profileRef = StorageRef.child("Users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(uImage);
+            }
+        });
+
+
         uID = fAuth.getCurrentUser().getUid();
 
-        DocumentReference documentReference = fStore.collection("Users").document(uID);
+        final DocumentReference documentReference = fStore.collection("Users").document(uID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 uName.setText(documentSnapshot.getString("Uname"));
                 email.setText(documentSnapshot.getString("Email"));
+                phone.setText(documentSnapshot.getString("Phone"));
             }
         });
+    }
+    public void logout(View view){
+        fAuth.signOut();
+        Intent i = new Intent(this,signupActivity.class);
+        startActivity(i);
+        finish();
+
     }
     public void changePicture (View view){
         Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -74,7 +92,6 @@ public class myAcc extends AppCompatActivity {
         if(requestCode==100){
             if (resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
-               // uImage.setImageURI(imageUri);
 
                 UploadImage(imageUri);
 
@@ -83,7 +100,7 @@ public class myAcc extends AppCompatActivity {
     }
 
     private void UploadImage(final Uri imageuri) {
-        final StorageReference fileRef = StorageRef.child("profile.jpg");
+        final StorageReference fileRef = StorageRef.child("Users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
         fileRef.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

@@ -19,13 +19,6 @@ public class home extends AppCompatActivity {
 
     }
 
-    public void logout(View view){
-        fireAuth.signOut();
-        Intent i = new Intent(this,signupActivity.class);
-        startActivity(i);
-        finish();
-
-    }
 
     public void mealMenuClick(View view) {
         Intent intent = new Intent(this,mealMenu.class);

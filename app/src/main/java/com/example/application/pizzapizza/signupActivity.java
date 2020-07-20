@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class signupActivity extends AppCompatActivity {
-    EditText unSup , pasSIn , email;
+    EditText unSup , pasSIn , email , phone;
     Button done ;
     private FirebaseAuth fAuth;
     ProgressBar progressBar;
@@ -40,6 +40,7 @@ public class signupActivity extends AppCompatActivity {
         unSup = (EditText)findViewById(R.id.writtenusernameSignup);
         pasSIn = (EditText) findViewById(R.id.writtenpassSignup);
         email = (EditText) findViewById(R.id.writtenemailSignup);
+        phone = (EditText) findViewById(R.id.writtenphoneSignup);
         done = (Button) findViewById(R.id.doneSignup);
         progressBar = findViewById(R.id.progressBar2);
 
@@ -58,6 +59,7 @@ public class signupActivity extends AppCompatActivity {
                 final String usernameSignUp = unSup.getText().toString().trim();
                 String passwordSignUp = pasSIn.getText().toString().trim();
                 final String emailSignUp = email.getText().toString().trim();
+                final String phoneSignUp = phone.getText().toString().trim();
 
                 if (TextUtils.isEmpty(usernameSignUp)){
                     unSup.setError("username is required");
@@ -69,6 +71,10 @@ public class signupActivity extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(emailSignUp)){
                     email.setError("email is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(phoneSignUp)){
+                    phone.setError("phone is required");
                     return;
                 }
                 if (passwordSignUp.length()<=5){
@@ -87,6 +93,7 @@ public class signupActivity extends AppCompatActivity {
                             final Map<String,Object> user = new HashMap<>();
                             user.put("Uname",usernameSignUp);
                             user.put("Email",emailSignUp);
+                            user.put("Phone",phoneSignUp);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

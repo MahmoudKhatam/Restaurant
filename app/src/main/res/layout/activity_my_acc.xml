@@ -24,13 +24,6 @@
             android:layout_weight="8"
             android:layout_margin="10dp"
             android:src="@mipmap/ic_launcher" />
-        <Button
-            android:id="@+id/btn_change_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="change pic "
-            android:onClick="changePicture"
-            android:layout_gravity="right"/>
 
 
         <TextView
@@ -40,6 +33,7 @@
             android:layout_weight="2"
             android:layout_margin="5dp"
             android:text="textview"
+            android:fontFamily="@font/andika"
             android:layout_height="0dp" />
 
     </LinearLayout>
@@ -68,7 +62,9 @@
                 android:id="@+id/email_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:fontFamily="@font/andika"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,39 +82,41 @@
                 android:id="@+id/phone_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:fontFamily="@font/andika" />
         </LinearLayout>
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="2">
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="57dp"
-                tools:srcCompat="@tools:sample/avatars"/>
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_change_pic"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:onClick="changePicture"
+                android:text="change pic "
+                android:fontFamily="@font/chela_one"
+                android:background="@drawable/radius" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="57dp"
-                tools:srcCompat="@tools:sample/avatars"/>
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_logOut"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="108dp"
+                android:layout_toRightOf="@id/btn_change_pic"
+                android:onClick="logout"
+                android:text="Log Out"
+                android:fontFamily="@font/chela_one"
+                android:background="@drawable/radius" />
+
+
+        </RelativeLayout>
+
+
 
 
 

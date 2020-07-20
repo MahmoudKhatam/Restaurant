@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:fontFamily="cursive"
@@ -97,19 +97,44 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="serif-monospace"
-        android:hint="enter your username" />
+        android:hint="enter your email" />
 
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/writtenemailSignup"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/andika"
+        android:text="Phone"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/writtenphoneSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="serif-monospace"
+        android:hint="enter your phone" />
     <Button
         android:id="@+id/doneSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/writtenemailSignup"
+        android:layout_below="@id/writtenphoneSignup"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/radius"
         android:fontFamily="@font/chela_one"
         android:text="Done" />
+
 
     <ProgressBar
         android:id="@+id/progressBar2"
